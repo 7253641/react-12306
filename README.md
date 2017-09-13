@@ -10,6 +10,43 @@
 * 删除已购买的车票
 * 退出登录
 #### 项目截图
+* app页面
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A2%E9%A1%B5%E9%9D%A2.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%95%86%E6%97%85%E6%9C%8D%E5%8A%A1%E9%A1%B5%E9%9D%A2.png "github")
+> 未登陆时点击订单查询页面会自动跳转到登陆页面
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%AE%A2%E5%8D%95.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/12306%E9%A1%B5%E9%9D%A2.png "github")
+* 登陆验证部分截图
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%A6%E5%8F%B7%E6%88%96%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.png "github")
+> 登陆成功
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%B7%B2%E7%99%BB%E9%99%86.png "github")
+* 注册失败
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.png "github")
+* 查询车票和筛选车次
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A2.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A22.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E7%AD%9B%E9%80%891.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E7%AD%9B%E9%80%892.png "github")
+
+* 购票退票
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%AD%E4%B9%B0%E8%BD%A6%E7%A5%A8.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%AD%E4%B9%B0%E6%88%90%E5%8A%9F.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%88%A0%E9%99%A4%E8%AE%A2%E5%8D%95.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%88%A0%E9%99%A4%E6%88%90%E5%8A%9F.png "github")
+* 退出登陆
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95.png "github")
+
 
 #### 运行项目
 * 首先确保已安装mysql(因为mysql官网上下载mysql需要注册，我使用的是免费版的wampserver，里面含有mysql，同样也可以使用)
