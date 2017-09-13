@@ -1,6 +1,6 @@
 # react-12306
 ### 使用create-react-app模板模仿12306app，实现了登陆和查票购票管理，结合express+mysql做后台，实现数据存储
-
+       前一阵边学react边做，用antdmobile搭建了一套牛客app的页面，比较基础[(界面我觉得还是挺漂亮的)](https://github.com/jinqiang12345/rreact-niukeAPP/tree/master/screenshots)，感兴趣的可以去看看，前辈让我模仿一下12306把前后端都联系起来,我就建了这个项目，上次使的是antd提供的模板，这次选用了create-react-app模板，自己引入redux、react-router、material-UI搭建前端界面，用express+mysql做后端，用fetchAPI连接，用redux存数据，在不同页面使用，项目过程中有很多问题，不过通过google，segmentfault提问都得到了解决。
 #### 实现功能
 * 用户登录
 * 用户注册
@@ -21,7 +21,7 @@
 * 登陆验证部分截图
 
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E7%99%BB%E9%99%86%E9%A1%B5%E9%9D%A2.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E7%99%BB%E9%99%86.png "github")
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%A6%E5%8F%B7%E6%88%96%E5%AF%86%E7%A0%81%E9%94%99%E8%AF%AF.png "github")
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.png "github")
 > 登陆成功
@@ -29,13 +29,16 @@
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%B7%B2%E7%99%BB%E9%99%86.png "github")
 * 注册失败
 
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%89%8B%E6%9C%BA%E5%8F%B7%E6%A0%BC%E5%BC%8F%E9%94%99%E8%AF%AF.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%B3%A8%E5%86%8C%E5%A4%B1%E8%B4%A5.png "github")
 * 查询车票和筛选车次
 
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A2.png "github")
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A22.png "github")
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E7%AD%9B%E9%80%891.png "github")
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E7%AD%9B%E9%80%892.png "github")
+* 查询中
+
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%9F%A5%E8%AF%A2loading.png "github")
 
 * 购票退票
 
