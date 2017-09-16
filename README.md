@@ -1,6 +1,6 @@
 # react-12306
 ### 使用create-react-app模板模仿12306app，实现了登陆和查票购票管理，结合express+mysql做后台，实现数据存储
-       前一阵边学react边做，用antdmobile搭建了一套牛客app的页面，比较基础[(界面我觉得还是挺漂亮的)](https://github.com/jinqiang12345/rreact-niukeAPP)，感兴趣的可以去看看，前辈让我模仿一下12306把前后端都联系起来,我就建了这个项目，上次使的是antd提供的模板，这次选用了create-react-app模板，自己引入redux、react-router、material-UI搭建前端界面，用express+mysql做后端，用fetchAPI连接，用redux存数据，在不同页面使用，项目过程中有很多问题，不过通过google，segmentfault提问都得到了解决。
+       前一阵边学react边做，用antdmobile搭建了一套牛客app的页面，比较基础[(界面)](https://github.com/jinqiang12345/rreact-niukeAPP)，感兴趣的可以去看看，前辈让我模仿一下12306把前后端都联系起来,我就建了这个项目，上次使的是antd提供的模板，这次选用了create-react-app模板，自己引入redux、react-router、material-UI搭建前端界面，用express+mysql做后端，用fetchAPI连接，用redux存数据，在不同页面使用，项目过程中有很多问题，不过通过google，segmentfault提问都得到了解决。
 #### 实现功能
 * 用户登录
 * 用户注册
