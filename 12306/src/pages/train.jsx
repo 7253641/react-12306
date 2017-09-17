@@ -10,6 +10,7 @@ import Refresh from '../components/refresh'
 import Tooltip from '../components/tooltip'
 import history from '../components/history'
 import {List, ListItem} from 'material-ui/List'
+import {trainpay} from '../actions'
 
 /*
 *车次信息页面
@@ -23,13 +24,9 @@ class train extends Component {
   state = {
     selectedIndex: 0,
     filter: 'all',
-    index: '0',
-    open: false,
     list: [],
     state: 'loading',
     display: 'block',
-    tooltip: false,
-    tipmessage: ''
   }
   componentDidMount() {
     this.fetchGank()
@@ -70,57 +67,8 @@ class train extends Component {
       console.log(e)
     }
   }
-  fetchinsert = async(i, n, t, m, y) => {
-    try {
-      let myInit = { method: 'POST',
-             cache: 'default',
-             body: JSON.stringify({id:i, number:n, title:t, time:m, type:y}),
-             headers: {
-             'Accept': 'application/json',
-             'Content-Type': 'application/json'
-           } }
-      let res = await fetch('http://localhost:5000/insertrecord', myInit)
-
-      // 等待 parse json
-      let data = await res.json()
-      console.log(data.message)
-      if(data.message === 1) {
-        this.setState({
-          tooltip: true,
-          tipmessage: '购买成功'
-        })
-      }
-      else{
-        this.setState({
-          tooltip: true,
-          tipmessage: '购买失败'
-        })
-      }
-    }
-    catch(e) {
-      console.log(e)
-    }
-
-  }
-  handleClose = () => {
-    this.setState({open: false})
-  }
-
-  confirm = () => {
-    if(this.props.login === '未登录') {
-      history.push('/login')
-    }
-    else {
-      let temp = this.change(this.state.list, this.state.filter)
-      let m = temp[this.state.index]
-      this.fetchinsert(this.props.login, m.number, m.title, m.time, m.type)
-      this.handleClose()
-    }
-  }
   select = (index) => this.setState({
     selectedIndex: index,
-    tooltip: false,
-    tipmessage: ''
   })
 
   change = (list, filter) => {
@@ -136,17 +84,10 @@ class train extends Component {
     }
   }
   handleClick(index) {
-    this.setState({
-      index: index,
-      open: true,
-      tooltip: false,
-      tipmessage: ''
-    })
-  }
-  handleRequestClose = () => {
-    this.setState({
-      tooltip: false
-    })
+    let temp = this.change(this.state.list, this.state.filter)
+    let m = temp[index]
+    this.props.dispatch(trainpay(m))
+    history.push('/pay')
   }
   render() {
 
@@ -195,8 +136,10 @@ class train extends Component {
                     key={index}
                     secondaryText={
                           <p>
-                            <span style={{color: '#333'}}>{site.title}</span><br />
-                            {site.time}
+                            <span style={{color: '#333'}}>{site.title}</span>
+                            <span style={{color: 'red', marginLeft: '.4rem', fontSize: '80%'}}>余票：{site.ticket}</span><br />
+                            {site.time}<br />
+                            <span style={{color: 'blue'}}>{site.ticket}</span>
                           </p>
                         }
                         secondaryTextLines={2}
@@ -205,8 +148,6 @@ class train extends Component {
                         />
         )}
       </List>
-      <Tooltip open={this.state.tooltip} message={this.state.tipmessage} onRequestClose={this.onRequestClose} />
-      <Alert handleClose={this.handleClose} confirm={this.confirm} open={this.state.open} text="确定购买该车次车票?"/>
       </div>
       </MuiThemeProvider>
     )
@@ -217,7 +158,8 @@ function select(state) {
   return {
     startsite: state.startsite,
     endsite: state.endsite,
-    login: state.login
+    login: state.login,
+    trainpay: state.trainpay
   }
 }
 export default connect(select)(train)

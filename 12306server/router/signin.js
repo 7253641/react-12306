@@ -38,7 +38,8 @@ router.post('/', upload.array(), function (req, res, next) {
           +',`number` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL'
           +', `title` VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL'
           +', `time` VARCHAR(1000) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL'
-          +', `type` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL , PRIMARY KEY (`id`), INDEX (`id`)) ENGINE = MyISAM'
+          +', `type` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL'
+          +', `state` INT(10) NOT NULL , PRIMARY KEY (`id`), INDEX (`id`)) ENGINE = MyISAM'
             //INSERT
           connection.query(sql,function (err, result) {
                   if(err){

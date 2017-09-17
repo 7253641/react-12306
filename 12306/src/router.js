@@ -11,6 +11,7 @@ import EndSite from './pages/endsite'
 import Train from './pages/train'
 import Login from './pages/login'
 import User from './pages/user'
+import Pay from './pages/pay'
 const router = () => (
   <Router history={history}>
     <Switch>
@@ -23,6 +24,7 @@ const router = () => (
       <Route exact path="/train" component={Train} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/user" component={User} />
+      <Route exact path="/pay" component={Pay} />
     </Switch>
   </Router>
 );

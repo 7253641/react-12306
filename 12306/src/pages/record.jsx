@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {Tabs, Tab} from 'material-ui/Tabs'
 import {List, ListItem} from 'material-ui/List'
-import Right from 'material-ui/svg-icons/hardware/keyboard-arrow-right'
 import FontIcon from 'material-ui/FontIcon'
 import Refresh from '../components/refresh'
 import Tooltip from '../components/tooltip'
@@ -68,7 +67,8 @@ class record extends React.Component {
   }
   fetchremove = async() => {
     try {
-      let record = this.state.list[this.state.index].id
+      let record = this.state.list.filter(list => list.state === 1)[this.state.index].id
+      console.log(record)
       let myInit = { method: 'POST',
              cache: 'default',
              body: JSON.stringify({id:this.props.login,recordid:record}),
@@ -82,7 +82,7 @@ class record extends React.Component {
       this.setState({
         list: data,
         tooltip: true,
-        tipmessage: '删除成功'
+        tipmessage: '退票成功'
       })
     }
     catch(e) {
@@ -129,18 +129,35 @@ class record extends React.Component {
           value={this.state.value}
           onChange={this.handleChange}
           >
-          <Tab label="已完成订单" value="a">
+          <Tab label="全部订单" value="a">
             <List>
-              <ListItem primaryText="今日订单" rightIcon={<Right />} />
-              <ListItem primaryText="未出行订单" rightIcon={<Right />} />
-              <ListItem primaryText="历史订单" rightIcon={<Right />} />
+            <Refresh state={this.state.state} display={this.state.display}/>
+            <List style={{marginBottom: '1rem'}}>
+              {this.state.list.map((site, index) =>
+                <ListItem primaryText={site.number}
+                          key={index}
+                          secondaryText={
+                                <p>
+                                  <span style={{color: '#333'}}>{site.title}</span>
+                                  <span style={{color: 'red', marginLeft: '.4rem', fontSize: '80%'}}>
+                                  {site.state > 0 ? "订单进行中" : "已退票"}
+                                  </span><br />
+                                  {site.time}
+
+                                </p>
+                              }
+                          secondaryTextLines={2}
+                          rightIcon={carIcon}
+                />
+              )}
+            </List>
             </List>
           </Tab>
           <Tab label="未完成订单" value="b">
             <div>
               <Refresh state={this.state.state} display={this.state.display}/>
               <List style={{marginBottom: '1rem'}}>
-                {this.state.list.map((site, index) =>
+                {this.state.list.filter(list => list.state === 1).map((site, index) =>
                   <ListItem primaryText={site.number}
                             key={index}
                             secondaryText={
@@ -159,7 +176,7 @@ class record extends React.Component {
           </Tab>
         </Tabs>
         <Tooltip open={this.state.tooltip} message={this.state.tipmessage} onRequestClose={this.onRequestClose} />
-        <Alert handleClose={this.handleClose} confirm={this.confirm} open={this.state.open} text="确定删除该车次车票?"/>
+        <Alert handleClose={this.handleClose} confirm={this.confirm} open={this.state.open} text="确定退票?"/>
       </div>
     )
   }

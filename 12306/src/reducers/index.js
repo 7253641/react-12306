@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { SET_STARTSITE, SET_ENDSITE, LOGIN_IN, LOGIN_OUT/*, ADD_ORDER, REMOVE_ORDER, REMOVE_ALLORDER*/ } from '../actions'
+import { SET_STARTSITE, SET_ENDSITE, LOGIN_IN, LOGIN_OUT, TRAIN_PAY/*, ADD_ORDER, REMOVE_ORDER, REMOVE_ALLORDER*/ } from '../actions'
 
 function startsite(state = '北京', action) {
     switch (action.type) {
@@ -28,6 +28,14 @@ function endsite(state = '上海', action) {
       return state
   }
 }
+function trainpay(state = [], action) {
+  switch(action.type) {
+    case TRAIN_PAY:
+    return action.list
+    default:
+      return state
+  }
+}
 /*redux存储车票信息方法*/
 // function order(state = [], action) {
 //   switch(action.type) {
@@ -51,7 +59,8 @@ function endsite(state = '上海', action) {
 const Site = combineReducers({
   startsite,
   endsite,
-  login
+  login,
+  trainpay
   // order
 })
 

@@ -6,6 +6,7 @@ export const SET_STARTSITE = 'SET_STARTSITE'
 export const SET_ENDSITE = 'SET_ENDSITE'
 export const LOGIN_IN ='LOGIN_IN'
 export const LOGIN_OUT='LOGIN_OUT'
+export const TRAIN_PAY='TRAIN_PAY'
 /*如果不从server取数据，用redux模拟，使用下面方法*/
 // export const ADD_ORDER='ADD_ORDER'
 // export const REMOVE_ORDER='REMOVE_ORDER'
@@ -32,7 +33,9 @@ export function loginout(user) {
 export function setEndSite(site) {
     return { type: SET_ENDSITE, site }
 }
-
+export function trainpay(list) {
+  return { type: TRAIN_PAY, list }
+}
 // export function addorder(number) {
 //   return {type: ADD_ORDER, number}
 // }
