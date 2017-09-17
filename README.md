@@ -34,20 +34,16 @@
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%B3%A8%E5%86%8C%E5%A4%B1%E8%B4%A5.png "github")
 * 查询车票和筛选车次
 
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A2.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E6%9F%A5%E8%AF%A22.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E7%AD%9B%E9%80%891.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BD%A6%E7%A5%A8%E7%AD%9B%E9%80%892.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E4%BD%99%E7%A5%A8.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E4%BD%99%E7%A5%A81.png "github")
 * 查询中
 
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E6%9F%A5%E8%AF%A2loading.png "github")
 
 * 购票退票
 
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%AD%E4%B9%B0%E8%BD%A6%E7%A5%A8.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%AD%E4%B9%B0%E6%88%90%E5%8A%9F.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%88%A0%E9%99%A4%E8%AE%A2%E5%8D%95.png "github")
-![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E5%88%A0%E9%99%A4%E6%88%90%E5%8A%9F.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%B4%AD%E7%A5%A8.png "github")
+![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E8%BF%9B%E5%BA%A6.png "github")
 * 退出登陆
 
 ![github](https://github.com/jinqiang12345/react-12306/blob/master/screenshots/%E9%80%80%E5%87%BA%E7%99%BB%E5%BD%95.png "github")
