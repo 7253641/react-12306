@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import {
   Route,
   Router,
   Switch
-} from 'react-router';
+} from 'react-router'
 import history from './components/history'
 import BottomBar from './pages/bottomBar'
 import Site from './pages/site'

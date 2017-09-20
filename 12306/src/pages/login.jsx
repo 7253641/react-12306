@@ -8,6 +8,9 @@ import NavBar from '../components/Navbar'
 import Alert from '../components/logindialog'
 import history from '../components/history'
 import { loginin } from '../actions'
+import Cookies from 'universal-cookie'
+
+const cookies = new Cookies()
 
 /*
 *登陆页面
@@ -28,19 +31,65 @@ class login extends React.Component {
       alerttext: '',
       open: false,
       loginlabel: '登陆',
-      signinlabel: '注册'
+      signinlabel: '注册',
+      rememberchecked: false,
+      autologinchecked: false,
     }
   }
+  updateCheck() {
+    this.setState((oldState) => {
+      return {
+        rememberchecked: !oldState.rememberchecked
+      }
+    })
+  }
+  updateautoCheck() {
+    this.setState((oldState) => {
+      return {
+        autologinchecked: !oldState.autologinchecked
+      }
+    })
+  }
+  componentWillMount() {
+    if(cookies.get('autologinchecked') === 'true') {
+      if(cookies.get('flag') === '1') {
+        this.fetchlogin(cookies.get('12306user'), cookies.get('12306password'))
+      }
+    }
+  }
+  componentDidMount() {
+      if(cookies.get('rememberchecked') === 'true') {
+          this.setState({
+            user: cookies.get('12306user'),
+            password: cookies.get('12306password'),
+            rememberchecked: true
+          })
+          if(cookies.get('autologinchecked') === 'true') {
+              this.setState({
+                autologinchecked: true
+              })
+            }
+            else {
+              this.setState({
+                autologinchecked: false
+              })
+            }
+          }
+      else {
+        this.setState({
+          rememberchecked: false
+        })
+      }
+  }
     /*登陆时调用函数*/
-  fetchlogin = async() => {
+  fetchlogin = async(user, pwd) => {
     try {
-      console.log(this.state.user)
       this.setState({
         loginlabel: '登陆中...'
       })
       let myInit = { method: 'POST',
              cache: 'default',
-             body: JSON.stringify({username:this.state.user, password:this.state.password}),
+             body: JSON.stringify({username:user, password:pwd}),
              headers: {
              'Accept': 'application/json',
              'Content-Type': 'application/json'
@@ -52,8 +101,25 @@ class login extends React.Component {
       let loginmessage = data.message
       if(loginmessage === 1) {
         console.log("success")
+        if(this.state.rememberchecked) {
+          cookies.set('12306user', this.state.user)
+          cookies.set('12306password', this.state.password)
+          cookies.set('rememberchecked', true)
+        }
+        else {
+          cookies.set('12306user', '')
+          cookies.set('12306password', '')
+          cookies.set('rememberchecked', false)
+        }
+        if(this.state.autologinchecked) {
+          cookies.set('autologinchecked', true)
+          cookies.set('flag', 1)
+        }
+        else {
+          cookies.set('autologinchecked', false)
+        }
         this.props.dispatch(loginin(this.state.user))
-        history.goBack()
+        history.push('/record')
        }
        else {
          console.log("error")
@@ -70,15 +136,14 @@ class login extends React.Component {
     }
   }
   /*注册时调用函数*/
-  fetchsignin = async() => {
+  fetchsignin = async(user, pwd) => {
     try {
-      console.log(this.state.user)
       this.setState({
         signinlabel: '注册中...'
       })
       let myInit = { method: 'POST',
              cache: 'default',
-             body: JSON.stringify({id:this.state.user, password:this.state.password}),
+             body: JSON.stringify({id:user, password:pwd}),
              headers: {
              'Accept': 'application/json',
              'Content-Type': 'application/json'
@@ -90,8 +155,25 @@ class login extends React.Component {
       let signinmessage = data.message
       if(signinmessage === 1) {
         console.log("success")
+        if(this.state.rememberchecked) {
+          cookies.set('12306user', this.state.user)
+          cookies.set('12306password', this.state.password)
+          cookies.set('rememberchecked', true)
+        }
+        else {
+          cookies.set('12306user', '')
+          cookies.set('12306password', '')
+          cookies.set('rememberchecked', false)
+        }
+        if(this.state.autologinchecked) {
+          cookies.set('autologinchecked', true)
+          cookies.set('flag', 1)
+        }
+        else {
+          cookies.set('autologinchecked', false)
+        }
         this.props.dispatch(loginin(this.state.user))
-        history.goBack()
+        history.push('/record')
        }
        else {
          console.log("error")
@@ -130,7 +212,7 @@ class login extends React.Component {
         })
       }
       else {
-        func()
+        func(this.state.user, this.state.password)
       }
     }
     else {
@@ -181,10 +263,14 @@ class login extends React.Component {
         />
         <Checkbox
           label="记住密码"
+          checked={this.state.rememberchecked}
+          onCheck={this.updateCheck.bind(this)}
           style={{float: 'left', width: '40%', marginLeft: '5%', marginTop: '1rem'}}
         />
         <Checkbox
           label="自动登录"
+          checked={this.state.autologinchecked}
+          onCheck={this.updateautoCheck.bind(this)}
           style={{float: 'left', width: '40%', marginTop: '1rem'}}
         />
         <RaisedButton label={this.state.signinlabel} primary={true} style={style} onClick={this.signin}/>
@@ -193,7 +279,7 @@ class login extends React.Component {
         </div>
         </MuiThemeProvider>
       </div>
-    );
+    )
   }
 }
 export default connect()(login)

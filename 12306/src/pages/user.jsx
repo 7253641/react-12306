@@ -7,6 +7,9 @@ import RaisedButton from 'material-ui/RaisedButton'
 import Right from 'material-ui/svg-icons/hardware/keyboard-arrow-right'
 import history from '../components/history'
 import { loginout } from '../actions'
+import Cookies from 'universal-cookie'
+
+const cookies = new Cookies()
 
 /*
 *用户信息页面
@@ -50,6 +53,7 @@ class user extends React.Component {
             <RaisedButton label="退出当前用户" primary={true} style={{width: '90%', margin: '0 5%'}}
               onClick={() => {
                 this.props.dispatch(loginout('666'))
+                cookies.set('flag', 0)
                 history.push('/login')
               }}/>
           </div>
